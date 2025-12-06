@@ -1,0 +1,1 @@
+export { Plural } from "./Plural";

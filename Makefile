@@ -1,0 +1,38 @@
+.PHONY: build
+build: setup
+	bun run ./script/build.ts
+
+.PHONY: setup
+setup:
+	bun install --no-save
+
+.PHONY: lint
+lint: setup
+	bun x @biomejs/biome check
+	bun x readme-cli-help --fence "js readme-example" --check-only "cat ./examples/readme-example.ts"
+
+.PHONY: format
+format: setup
+	bun x @biomejs/biome check --write
+	bun x readme-cli-help --fence "js readme-example" "cat ./examples/readme-example.ts"
+
+.PHONY: test
+test: setup
+	bun test
+	# Check that the example code runs successfully.
+	bun run -- './examples/readme-example.ts'
+
+.PHONY: clean
+clean:
+	rm -rf ./dist
+
+.PHONY: reset
+reset: clean
+	rm -rf ./node_modules
+
+.PHONY: prepublishOnly
+prepublishOnly: lint test clean build
+
+.PHONY: publish	
+publish:
+	npm publish
