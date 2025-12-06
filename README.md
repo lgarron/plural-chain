@@ -18,9 +18,11 @@ console.log(`Mash ${Plural.num.es(4)`potatoes`} thoroughly.`); // Mash 2 potatoe
 const nephews = ["Tick", "Trick", "Track"];
 console.log(`Donald has ${Plural.num.s({ nephews })}.`); // Donald has 3 nephews.
 
-class Display {} // Stub
-const displays = [new Display(), new Display()];
-console.log(`${Plural.num.s.isAre({ displays })} now connected.`); // 2 displays are now connected.
+{
+  const queue = [{}, {}];
+  // 2 things are being created.
+  console.log(`${Plural.num.s.is_are({ things: queue })} being created.`);
+}
 
 {
   const fruits = ["apple"]; // Or try: ["apple", "pear"];

@@ -142,8 +142,9 @@ function createPluralizer(options?: Options): Pluralizer {
 
   define("a", [new LiteralComponent(["a", null])]);
   define("an", [new LiteralComponent(["an", null])]);
-  define("isAre", [new LiteralComponent(["is", "are"])]);
-  define("isAAre", [new LiteralComponent(["is a", "are"])]);
+  define("is_are", [new LiteralComponent(["is", "are"])]);
+  define("is_a__are", [new LiteralComponent(["is a", "are"])]);
+  define("has_have", [new LiteralComponent(["has", "have"])]);
 
   fn.literal = (
     literalInfo: string | [singular: string | null, plural: string | null],
@@ -167,8 +168,9 @@ type Pluralizer = Monad & {
 
   a: Pluralizer;
   an: Pluralizer;
-  isAre: Pluralizer;
-  isAAre: Pluralizer;
+  is_are: Pluralizer;
+  is_a__are: Pluralizer;
+  has_have: Pluralizer;
 
   literal: (
     s: string | [singular: string | null, plural: string | null],

@@ -9,19 +9,20 @@ test("Simple plural", async () => {
 
 test("isAAre / isA", async () => {
   {
-    const fn = (nephews: string[]) => `There ${Plural.isAAre.s({ nephews })}.`;
+    const fn = (nephews: string[]) =>
+      `There ${Plural.is_a__are.s({ nephews })}.`;
     expect(fn(["Tick", "Trick", "Track"])).toEqual("There are nephews.");
     expect(fn(["Joe"])).toEqual("There is a nephew.");
   }
   {
     const fn = (nephews: string[]) =>
-      `Where ${Plural.isAre({ nephews })} the ${Plural.s({ nephews })}?`;
+      `Where ${Plural.is_are({ nephews })} the ${Plural.s({ nephews })}?`;
     expect(fn(["Tick", "Trick", "Track"])).toEqual("Where are the nephews?");
     expect(fn(["Joe"])).toEqual("Where is the nephew?");
   }
   {
     const fn = (nephews: string[]) =>
-      `Where ${Plural.isAre.literal("my").s({ nephews })}?`;
+      `Where ${Plural.is_are.literal("my").s({ nephews })}?`;
     expect(fn(["Tick", "Trick", "Track"])).toEqual("Where are my nephews?");
     expect(fn(["Joe"])).toEqual("Where is my nephew?");
   }
@@ -59,7 +60,7 @@ test("Multiples", async () => {
     expect(fn(3)).toEqual("You have been dealt a hand of 3 cards.");
   }
   {
-    const fn = (n: number) => `There ${Plural.isAre.num.s(n)`lights`}.`;
+    const fn = (n: number) => `There ${Plural.is_are.num.s(n)`lights`}.`;
 
     expect(fn(0)).toEqual("There are 0 lights.");
     expect(fn(1)).toEqual("There is 1 light.");
@@ -68,7 +69,7 @@ test("Multiples", async () => {
     expect(fn(4)).toEqual("There are 4 lights.");
 
     expect(
-      `There ${Plural.isAre.literal("definitely not").num.s(5)`lights`}.`,
+      `There ${Plural.is_are.literal("definitely not").num.s(5)`lights`}.`,
     ).toEqual("There are definitely not 5 lights.");
   }
 });
@@ -129,13 +130,22 @@ test("an", async () => {
 
 test("is/are", async () => {
   const fn = (n: number) =>
-    `There ${Plural.isAre.num.literal("spare").s(n)`aquarium pumps`}.`;
+    `There ${Plural.is_are.num.literal("spare").s(n)`aquarium pumps`}.`;
   expect(fn(1)).toEqual("There is 1 spare aquarium pump.");
   expect(fn(4)).toEqual("There are 4 spare aquarium pumps.");
 });
 
 test("is a/are", async () => {
-  const fn = (n: number) => `There ${Plural.isAAre.s(n)`corals`} in the tank.`;
+  const fn = (n: number) =>
+    `There ${Plural.is_a__are.s(n)`corals`} in the tank.`;
   expect(fn(1)).toEqual("There is a coral in the tank.");
   expect(fn(2)).toEqual("There are corals in the tank.");
+});
+
+test("has/have", async () => {
+  class Thing {}
+  const fn = (queue: Thing[]) =>
+    `${Plural.num.s.has_have({ things: queue })} been created.`;
+  expect(fn([new Thing()])).toEqual("1 thing has been created.");
+  expect(fn([new Thing(), new Thing()])).toEqual("2 things have been created.");
 });
