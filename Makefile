@@ -16,6 +16,9 @@ format: setup
 	bun x @biomejs/biome check --write
 	bun x readme-cli-help --fence "js readme-example" "cat ./examples/readme-example.ts"
 
+.PHONY: check
+check: lint test build
+
 .PHONY: test
 test: setup
 	bun test
