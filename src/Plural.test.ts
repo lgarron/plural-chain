@@ -149,3 +149,17 @@ test("has/have", async () => {
   expect(fn([new Thing()])).toEqual("1 thing has been created.");
   expect(fn([new Thing(), new Thing()])).toEqual("2 things have been created.");
 });
+
+test("Non-natural numbers", async () => {
+  const fn = (numCups: number) =>
+    `Add ${Plural.num.s(numCups)`cups`} of flour.`;
+  // Check natural numbers for good measure.
+  expect(fn(0)).toEqual("Add 0 cups of flour.");
+  expect(fn(1)).toEqual("Add 1 cup of flour.");
+  expect(fn(2)).toEqual("Add 2 cups of flour.");
+  // TODO: ¾
+  expect(fn(3 / 4)).toEqual("Add 0.75 cups of flour.");
+  expect(fn(1.0000001)).toEqual("Add 1.0000001 cups of flour.");
+  expect(fn(1.2345)).toEqual("Add 1.2345 cups of flour.");
+  expect(fn(Infinity)).toEqual("Add Infinity cups of flour."); // 🤷
+});
