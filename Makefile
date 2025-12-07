@@ -10,6 +10,8 @@ setup:
 lint: setup
 	bun x @biomejs/biome check
 	bun x readme-cli-help check
+	bun x tsc --project ./
+	bun x tsc --project ./examples/
 
 .PHONY: format
 format: setup
