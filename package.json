@@ -23,5 +23,8 @@
   ],
   "scripts": {
     "prepublishOnly": "make prepublishOnly"
+  },
+  "dependencies": {
+    "readme-cli-help": "^0.4.0"
   }
 }

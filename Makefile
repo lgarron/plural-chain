@@ -9,12 +9,12 @@ setup:
 .PHONY: lint
 lint: setup
 	bun x @biomejs/biome check
-	bun x readme-cli-help --fence "js readme-example" --check-only "cat ./examples/readme-example.ts"
+	bun x readme-cli-help check
 
 .PHONY: format
 format: setup
 	bun x @biomejs/biome check --write
-	bun x readme-cli-help --fence "js readme-example" "cat ./examples/readme-example.ts"
+	bun x readme-cli-help update
 
 .PHONY: check
 check: lint test build
