@@ -1,6 +1,6 @@
 {
   "name": "plural-chain",
-  "version": "0.2.2",
+  "version": "0.2.3-dev",
   "exports": {
     ".": {
       "types": "./dist/lib/plural-chain/index.d.ts",
