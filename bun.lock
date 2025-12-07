@@ -10,7 +10,7 @@
         "betterdisplaycli": "^0.1.8",
         "esbuild": "^0.27.1",
         "printable-shell-command": "^2.7.3",
-        "readme-cli-help": "^0.4.6",
+        "readme-cli-help": ">=0.4.7",
         "typescript": "^5.9.3",
       },
     },
@@ -112,11 +112,11 @@
 
     "path-class": ["path-class@0.10.0", "", { "dependencies": { "@types/node": "^24.7.1", "readme-cli-help": ">=0.3.1", "xdg-basedir": "^5.1.0" } }, "sha512-E0PrlMq6W5PujTIYNeM/IDr3I/X9QxwQ8GbUuDiZAas2pAa1nikTezNq+hVVDcOp8dXqmWeyecS+Fnh9NTRjbg=="],
 
-    "plural-chain": ["plural-chain@0.2.2", "", { "dependencies": { "readme-cli-help": "^0.4.0" } }, "sha512-xZ3h2cF//BzQUgfhI8nuK4QWphavMCwF1x74LIo1Zk8wS2JAT5JjP26pwGK5RABcQvPqHF/qxWSKciegI11t1Q=="],
+    "plural-chain": ["plural-chain@0.2.3", "", {}, "sha512-iqzW8/mS8+Yveu1mZtoEtdmg0yglWDM7mL1bKzD4H+BlMaGCl/Ig0oTfSy4oEm6A20sgLS0zWaLbgmRemr1bFg=="],
 
     "printable-shell-command": ["printable-shell-command@2.7.3", "", { "dependencies": { "path-class": ">=0.6.1", "type-fest": ">=5.1.0" }, "optionalDependencies": { "@types/bun": "^1.2.20", "@types/node": "^24.2.0" } }, "sha512-dze0g2XUiBTp6EGd5kPSR2i422sabXWFjnk8qOqxbeUCxcNMNDjA2Z3XYq/8ZL6GmS7nhc/HjtRFXBvRP3c03A=="],
 
-    "readme-cli-help": ["readme-cli-help@0.4.6", "", { "dependencies": { "@optique/core": ">=0.7.2", "@optique/run": ">=0.7.2", "ajv": "^8.17.1", "path-class": ">=0.10.3", "plural-chain": ">=0.2.2", "printable-shell-command": "^2.7.3" }, "bin": { "readme-cli-help": "src/main.ts" } }, "sha512-9/7Jd3qLpnGEmwI6bUXbcfn5IX+j6/XOjr6u7XAZOFN1Eu+KuW8d2LeZLtbrhxv4tFMSdvYO0W68QH70h0Z82w=="],
+    "readme-cli-help": ["readme-cli-help@0.4.7", "", { "dependencies": { "@optique/core": ">=0.7.2", "@optique/run": ">=0.7.2", "ajv": "^8.17.1", "path-class": ">=0.10.3", "plural-chain": ">=0.2.3", "printable-shell-command": "^2.7.3" }, "bin": { "readme-cli-help": "src/main.ts" } }, "sha512-GZtKNWry1EFrctsFkq35B7GJG9C+ytfq9M/oyif88gvjcWpWOY5R4jEyu4Gp92sN29dYFbbbalpEbkZvriuXNw=="],
 
     "require-from-string": ["require-from-string@2.0.2", "", {}, "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw=="],
 
@@ -132,8 +132,6 @@
 
     "path-class/readme-cli-help": ["readme-cli-help@0.3.2", "", { "dependencies": { "@optique/core": "^0.6.2", "@optique/run": "^0.6.2", "path-class": "^0.8.1" }, "bin": { "readme-cli-help": "main.ts" } }, "sha512-kcj8tVFsZMJqtsWVVTY91QRYyC4AfnZgSm6xmxPDz+Eu77zcYLcKs4EOvKlKWXO0rPi6hYhzAumGKMD39BRTPQ=="],
 
-    "plural-chain/readme-cli-help": ["readme-cli-help@0.4.5", "", { "dependencies": { "@optique/core": ">=0.7.2", "@optique/run": ">=0.7.2", "ajv": "^8.17.1", "path-class": ">=0.10.3", "plural-chain": ">=0.2.2", "printable-shell-command": "^2.7.3" }, "bin": { "readme-cli-help": "src/main.ts" } }, "sha512-MsOUatUbQ+FCovRIlkJBYA/jseuUa0pehmAtmJHKlAt2r5FRlMA3LfBci6pFI+PpgTyXPsSR3oRageRiSeMhBA=="],
-
     "readme-cli-help/path-class": ["path-class@0.10.3", "", { "dependencies": { "@types/node": "^24.7.1", "xdg-basedir": "^5.1.0" } }, "sha512-teUDitVwoVlJTDOXb/WGwDcxRvcwVVdDh8IpfYzZ+E4FaPNtfE7py0eNE2mCNZ10m1IckTpQjCG2cujpw42tTw=="],
 
     "path-class/readme-cli-help/@optique/core": ["@optique/core@0.6.5", "", {}, "sha512-H3O//t/qxq7GT+25oLi4mXyxB/PccTcj+0P4HcboDcTnAN7gcTgoxvAugaHExw9s7WrVOlRQRZuYXseKtU/cyw=="],
@@ -141,8 +139,6 @@
     "path-class/readme-cli-help/@optique/run": ["@optique/run@0.6.5", "", { "dependencies": { "@optique/core": "0.6.5" } }, "sha512-dJTfcNXRWM+dmGxbeTFNDt/cf3v92wNYcJVZUu+FqwNXD5lX/koWeMIGwT0eoJegGPWvzpCVRb0CVjc+b/AUbQ=="],
 
     "path-class/readme-cli-help/path-class": ["path-class@0.8.3", "", { "dependencies": { "@types/node": "^24.7.1", "readme-cli-help": "^0.1.10", "xdg-basedir": "^5.1.0" } }, "sha512-s3yDkljkzAr7DBmHUdX7ipMYpNbUEMG3dM0oSrFFMpg1UHQKXau5iNdUPbT1OGT/iNRq7GtHmsEdbVCTh00pFw=="],
-
-    "plural-chain/readme-cli-help/path-class": ["path-class@0.10.3", "", { "dependencies": { "@types/node": "^24.7.1", "xdg-basedir": "^5.1.0" } }, "sha512-teUDitVwoVlJTDOXb/WGwDcxRvcwVVdDh8IpfYzZ+E4FaPNtfE7py0eNE2mCNZ10m1IckTpQjCG2cujpw42tTw=="],
 
     "path-class/readme-cli-help/path-class/readme-cli-help": ["readme-cli-help@0.1.10", "", { "peerDependencies": { "typescript": "^5.0.0" }, "bin": { "readme-cli-help": "main.ts" } }, "sha512-HBu72nVFqoLIBtEQJo1bC+z9zPqz1D84pPSS9mjGPS35AFAoW0Qif7TJVotIpToWVwmjljF0EXeo9Qgy3KbxxQ=="],
   }
