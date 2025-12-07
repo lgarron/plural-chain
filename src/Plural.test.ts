@@ -150,6 +150,13 @@ test("has/have", async () => {
   expect(fn([new Thing(), new Thing()])).toEqual("2 things have been created.");
 });
 
+test("was/were", async () => {
+  const fn = (numFiles: number) =>
+    `${Plural.num.s.was_were(numFiles)`files`} up to date.`;
+  expect(fn(1)).toEqual("1 file was up to date.");
+  expect(fn(7)).toEqual("7 files were up to date.");
+});
+
 test("Non-natural numbers", async () => {
   const fn = (numCups: number) =>
     `Add ${Plural.num.s(numCups)`cups`} of flour.`;
