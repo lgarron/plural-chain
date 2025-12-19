@@ -19,13 +19,17 @@ format: setup
 	bun x readme-cli-help update
 
 .PHONY: check
-check: lint test build
+check: lint test build check-package.json
 
 .PHONY: test
 test: setup
 	bun test
 	# Check that the example code runs successfully.
 	bun run -- './examples/readme-example.ts'
+
+.PHONY: check-package.json
+check-package.json:
+	bun x --package @cubing/dev-config package.json check
 
 .PHONY: clean
 clean:
