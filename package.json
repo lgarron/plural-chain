@@ -1,6 +1,14 @@
 {
   "name": "plural-chain",
   "version": "0.2.4-dev",
+  "description": "It's kind of like a monad for plurals!",
+  "author": "Lucas Garron <code@garron.net>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgarron/plural-chain.git"
+  },
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/lib/plural-chain/index.d.ts",
