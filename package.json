@@ -1,6 +1,6 @@
 {
   "name": "plural-chain",
-  "version": "0.2.4",
+  "version": "0.2.5-dev",
   "description": "It's kind of like a monad for plurals!",
   "author": "Lucas Garron <code@garron.net>",
   "license": "MIT",
