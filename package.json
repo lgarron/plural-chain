@@ -21,7 +21,7 @@
     "@cubing/dev-config": ">=0.10.1",
     "@types/bun": "^1.3.3",
     "betterdisplaycli": "^0.1.8",
-    "esbuild": "^0.27.1",
+    "esbuild": ">=0.28.1",
     "printable-shell-command": "^2.7.3",
     "readme-cli-help": ">=0.4.7",
     "typescript": "^5.9.3"
