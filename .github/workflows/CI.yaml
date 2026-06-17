@@ -3,22 +3,17 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: make setup
+      - run: make lint-biome
+      - run: make lint-readme-cli-help
+      - run: make lint-typescript-main
+      - run: make lint-typescript-examples
+      - run: make test
       - run: make build
       - run: make check-package.json
-
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-      - run: make setup
-      - run: make lint
-      - run: make test

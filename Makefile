@@ -1,22 +1,37 @@
 .PHONY: build
 build: setup
-	bun run ./script/build.ts
+	bun run -- ./script/build.ts
+
+.PHONY: check
+check: lint test build check-package.json
 
 .PHONY: setup
 setup:
 	bun install --frozen-lockfile
 
 .PHONY: lint
-lint: setup
-	bun x @biomejs/biome check
-	bun x readme-cli-help check
-	bun x tsc --project ./
-	bun x tsc --project ./examples/
+lint: lint-biome lint-readme-cli-help lint-typescript-main lint-typescript-examples
+
+.PHONY: lint-biome
+lint-biome: setup
+	bun x -- bun-dx --package @biomejs/biome biome -- check
+
+.PHONY: lint-readme-cli-help
+lint-readme-cli-help: setup
+	bun x -- bun-dx --package readme-cli-help readme-cli-help -- check
+
+.PHONY: lint-typescript-main
+lint-typescript-main: setup
+	bun x -- bun-dx --package @typescript/native-preview tsgo -- --project ./
+
+.PHONY: lint-typescript-examples
+lint-typescript-examples: setup
+	bun x -- bun-dx --package @typescript/native-preview tsgo -- --project ./examples
 
 .PHONY: format
 format: setup
-	bun x @biomejs/biome check --write
-	bun x readme-cli-help update
+	bun x -- bun-dx --package @biomejs/biome biome -- check --write
+	bun x -- bun-dx --package readme-cli-help readme-cli-help -- update
 
 .PHONY: check
 check: lint test build check-package.json
@@ -28,16 +43,18 @@ test: setup
 	bun run -- './examples/readme-example.ts'
 
 .PHONY: check-package.json
-check-package.json:
-	bun x --package @cubing/dev-config package.json check
+check-package.json: build
+	bun x -- bun-dx --package @cubing/dev-config package.json -- check
+
+RM_RF = bun -e 'process.argv.slice(1).map(p => process.getBuiltinModule("node:fs").rmSync(p, {recursive: true, force: true, maxRetries: 5}))' --
 
 .PHONY: clean
 clean:
-	rm -rf ./dist
+	${RM_RF} ./dist/
 
 .PHONY: reset
 reset: clean
-	rm -rf ./node_modules
+	${RM_RF} ./node_modules/
 
 .PHONY: prepublishOnly
 prepublishOnly: lint test clean build
